@@ -9,6 +9,14 @@ import GridBackground from "@/components/ui/grid-background";
 import Spotlight from "@/components/ui/spotlight";
 
 export default function Home() {
+  const scrollToContact = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-black overflow-hidden">
       <FloatingNavbar />
@@ -91,7 +99,10 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
             >
-              <button className="group relative px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full overflow-hidden shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105">
+              <button 
+                onClick={scrollToContact}
+                className="group relative px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full overflow-hidden shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+              >
                 <span className="relative z-10 flex items-center gap-2">
                   Let&apos;s get started then!
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -432,7 +443,7 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <div className="relative z-10 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -440,22 +451,73 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">
-              Ready to get started?
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              Let&apos;s build something amazing together in Pakistan
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group px-12 py-6 bg-linear-to-r from-blue-600 to-purple-600 text-white text-xl font-bold rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300"
+            <div className="text-center">
+              <h2 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+                Ready to get started?
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-400">
+                Let&apos;s build something amazing together in Pakistan
+              </p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
             >
-              <span className="flex items-center gap-3">
-                Contact Us Today
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-              </span>
-            </motion.button>
+              <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 rounded-3xl blur-xl opacity-20" />
+              <div className="relative bg-white dark:bg-gray-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-200 dark:border-gray-800">
+                <form
+                  action="https://formspree.io/f/mzzkkqlv"
+                  method="POST"
+                  className="space-y-6"
+                >
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      Your email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-blue-500 transition-colors"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      Your message
+                    </label>
+                    <textarea
+                      name="message"
+                      id="message"
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-blue-500 transition-colors resize-none"
+                      placeholder="Tell us about your project..."
+                    />
+                  </div>
+                  <motion.button
+                    type="submit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group w-full px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    Send
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                </form>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
