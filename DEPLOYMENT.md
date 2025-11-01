@@ -20,9 +20,15 @@ This repository is configured to deploy to GitHub Pages at **karsaztech.com**.
 
 ### 3. DNS Configuration
 
-You need to configure your DNS records for `karsaztech.com`:
+You need to configure your DNS records for `karsaztech.com`. **Use A records** (not CNAME) if you have multiple GitHub Pages repositories, as CNAME at root can only point to one repository.
 
-**Option A: A Records (Recommended)**
+**A Records (Required for Multiple Repos)**
+
+GitHub Pages requires both the root domain (`karsaztech.com`) AND the www subdomain (`www.karsaztech.com`) to be configured.
+
+**For Root Domain (karsaztech.com):**
+
+Add these 4 A records:
 ```
 Type: A
 Name: @
@@ -45,15 +51,37 @@ Value: 185.199.111.153
 TTL: 3600
 ```
 
-**Option B: CNAME Record**
+**For www Subdomain (www.karsaztech.com):**
+
+Add these 4 A records (same IPs as root):
 ```
-Type: CNAME
-Name: @
-Value: yourusername.github.io
+Type: A
+Name: www
+Value: 185.199.108.153
+TTL: 3600
+
+Type: A
+Name: www
+Value: 185.199.109.153
+TTL: 3600
+
+Type: A
+Name: www
+Value: 185.199.110.153
+TTL: 3600
+
+Type: A
+Name: www
+Value: 185.199.111.153
 TTL: 3600
 ```
 
-*Note: GitHub will verify the domain and create a CNAME file automatically when you add the custom domain in settings.*
+**Important for Cloudflare Users:**
+- Set all A records (both root and www) to **DNS-only mode** (grey cloud ☁️, NOT orange cloud 🟠)
+- **DO NOT enable proxying** - GitHub Pages needs direct DNS access for domain verification
+- Proxying can interfere with GitHub's SSL certificate provisioning and domain verification
+
+*Note: GitHub will verify the domain and create a CNAME file automatically when you add the custom domain in settings. This CNAME file is stored in your repo and doesn't affect your DNS records.*
 
 ### 4. Environment Variables
 

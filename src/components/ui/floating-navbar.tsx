@@ -10,7 +10,7 @@ export default function FloatingNavbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
-    if (latest > previous && latest > 150) {
+    if (previous !== undefined && latest > previous && latest > 150) {
       setHidden(true);
     } else {
       setHidden(false);
