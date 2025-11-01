@@ -50,7 +50,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-gray-700 dark:text-gray-300 text-4xl md:text-5xl lg:text-6xl mb-4"
+                className="text-gray-900 dark:text-white mb-4"
               >
                 to help your business
               </motion.div>
@@ -58,9 +58,13 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-gray-700 dark:text-gray-300 text-4xl md:text-5xl lg:text-6xl mb-4"
+                className="text-gray-900 dark:text-white mb-4"
               >
-                open a tech hub in
+                open a{" "}
+                <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+                  tech hub
+                </span>
+                {" "}in
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
