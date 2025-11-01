@@ -101,7 +101,7 @@ export default function Home() {
             >
               <button 
                 onClick={scrollToContact}
-                className="group relative px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full overflow-hidden shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+                className="group relative px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full overflow-hidden shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 cursor-pointer"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Let&apos;s get started then!
