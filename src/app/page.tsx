@@ -20,7 +20,7 @@ export default function Home() {
   const siteUrl = 
     typeof window !== "undefined" 
       ? window.location.origin 
-      : process.env.NEXT_PUBLIC_SITE_URL || "https://karsaz-tech.com";
+      : process.env.NEXT_PUBLIC_SITE_URL || "https://karsaztech.com";
 
   const organizationSchema = {
     "@context": "https://schema.org",
