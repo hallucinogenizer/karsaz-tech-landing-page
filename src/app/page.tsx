@@ -17,8 +17,110 @@ export default function Home() {
     }
   };
 
+  const siteUrl = 
+    typeof window !== "undefined" 
+      ? window.location.origin 
+      : process.env.NEXT_PUBLIC_SITE_URL || "https://karsaz-tech.com";
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Karsaz Tech",
+    "description": "Your gateway to establishing a world-class tech hub in Pakistan. We provide comprehensive legal services, top-tier talent acquisition, and end-to-end office setup.",
+    "url": siteUrl,
+    "logo": `${siteUrl}/logo.png`,
+    "sameAs": [
+      // Add social media links when available
+      // "https://www.linkedin.com/company/karsaz-tech",
+      // "https://twitter.com/karsaztech",
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "areaServed": "PK",
+      "availableLanguage": ["en", "ur"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PK",
+      "addressLocality": "Pakistan"
+    }
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Tech Hub Setup Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "Karsaz Tech"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Pakistan"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Tech Hub Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Comprehensive Legal Services",
+            "description": "Navigate Pakistani regulations with ease. We handle all legal complexities from entity formation to compliance."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Top-Tier Talent Acquisition",
+            "description": "Access Pakistan's best tech talent. We source, vet, and onboard exceptional professionals for your team."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "End-to-End Office Setup",
+            "description": "From finding the perfect space to daily operations, we manage everything so you can focus on growth."
+          }
+        }
+      ]
+    }
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Karsaz Tech",
+    "url": siteUrl,
+    "description": "Transform global expansion from a risk into your unfair advantage. Establish a world-class software tech hub in Pakistan.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${siteUrl}/search?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-black overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <FloatingNavbar />
       
       {/* Hero Section */}
