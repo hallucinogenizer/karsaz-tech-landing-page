@@ -40,27 +40,10 @@ export default function ServiceCard({
           </h3>
           
           {description && (
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-gray-600 dark:text-gray-400">
               {description}
             </p>
           )}
-          
-          <button className="inline-flex items-center text-blue-600 font-semibold group-hover:gap-2 transition-all">
-            Learn More
-            <svg
-              className="w-4 h-4 ml-1 group-hover:ml-2 transition-all"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
         </div>
       </div>
     </motion.div>

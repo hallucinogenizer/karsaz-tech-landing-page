@@ -109,10 +109,6 @@ export default function Home() {
                 </span>
                 <div className="absolute inset-0 bg-linear-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
-              
-              <button className="px-8 py-4 border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-semibold rounded-full hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:scale-105">
-                Learn More
-              </button>
             </motion.div>
           </motion.div>
         </div>
@@ -349,17 +345,6 @@ export default function Home() {
                 </p>
               </div>
             </div>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300"
-            >
-              <span className="flex items-center gap-2">
-                Learn More
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </motion.button>
           </motion.div>
         </div>
       </section>
