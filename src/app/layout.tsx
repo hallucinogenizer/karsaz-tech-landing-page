@@ -29,7 +29,7 @@ export const metadata = {
   authors: [{ name: "Karsaz Tech" }],
   creator: "Karsaz Tech",
   publisher: "Karsaz Tech",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://karsaz-tech.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://karsaztech.com"),
   alternates: {
     canonical: "/",
   },
