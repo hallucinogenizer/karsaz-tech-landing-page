@@ -33,6 +33,14 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon.png", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "Karsaz Tech - Establish Your Tech Hub in Pakistan",
     description: "Transform global expansion from a risk into your unfair advantage. Establish a world-class software tech hub in Pakistan with comprehensive legal services, top-tier talent acquisition, and end-to-end office setup.",
@@ -42,7 +50,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Karsaz Tech - Your Gateway to Pakistan's Tech Talent",
@@ -53,7 +61,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Karsaz Tech - Your Tech Hub in Pakistan",
     description: "Transform global expansion from a risk into your unfair advantage. Establish a world-class software tech hub in Pakistan.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
     creator: "@karsaztech",
   },
   robots: {
